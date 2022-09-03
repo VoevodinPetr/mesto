@@ -1,0 +1,8 @@
+.cards__block {
+  background-color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 30px 0 21px;
+  align-items: center;
+  min-height: 79px;
+}

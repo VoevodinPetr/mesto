@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./pages/index.css">
+    <title>Mesto</title>
+</head>
+
+<body class="root">
+    <header class="header">
+        <img class="header__logo" src="./image/логотип.png" alt="">
+    </header>
+    <main class="content">
+        <section class="profile">
+            <div class="profile__avatar-conteiner">
+                <img class="profile__avatar" src="./image/image (1).jpg" alt="">
+            </div>
+            <div class="profile__info">
+                <div class="profile__container">
+                    <h1 class="profile__name">Жак-Ив Кусто</h1>
+                    <button class="profile__edit-button">
+                        <img src="./image/Vector.png" alt="">
+                    </button>
+                </div>
+                <p class="profile__job">Исследователь океана</p>
+            </div>
+            <button class="profile__add-button">
+                <img src="./image/add-button.svg">
+            </button>
+        </section>
+
+        <section class="cards">
+            <ul class="cards__container">
+                <li class="cards__foto">
+                    <img class="cards__image" src="./image/nicolas-weldingh-n2bK4g5qNF0-unsplash.jpg" alt="">
+                    <div class="cards__block">
+                        <h2 class="cards__title">Ватикан</h2>
+                        <button class="cards__like">
+                        </button>
+                    </div>
+                </li>
+                <li class="cards__foto">
+                    <img class="cards__image" src="./image/axp-photography-7_K8r355ZO0-unsplash.jpg" alt="">
+                    <div class="cards__block">
+                        <h2 class="cards__title">Португалия, Лисабон</h2>
+                        <button class="cards__like">
+                        </button>
+                    </div>
+                </li>
+                <li class="cards__foto">
+                    <img class="cards__image" src="./image/giulia-salvaterra-_xxQYHYVewg-unsplash.jpg" alt="">
+                    <div class="cards__block">
+                        <h2 class="cards__title">США</h2>
+                        <button class="cards__like">
+                        </button>
+                    </div>
+                </li>
+                <li class="cards__foto">
+                    <img class="cards__image" src="./image/hans-isaacson-IKQUuqK70_M-unsplash.jpg" alt="">
+                    <div class="cards__block">
+                        <h2 class="cards__title">Ночные огни</h2>
+                        <button class="cards__like">
+                        </button>
+                    </div>
+                </li>
+                <li class="cards__foto">
+                    <img class="cards__image" src="./image/joshua-hibbert-Pn6iimgM-wo-unsplash.jpg" alt="">
+                    <div class="cards__block">
+                        <h2 class="cards__title">Маяк Кейп-Нельсон Австралия</h2>
+                        <button class="cards__like">
+                        </button>
+                    </div>
+                </li>
+                <li class="cards__foto">
+                    <img class="cards__image" src="./image/farrinni-8kM3Gi7_DNM-unsplash (1).jpg" alt="">
+                    <div class="cards__block">
+                        <h2 class="cards__title">Духовность</h2>
+                        <button class="cards__like">
+                        </button>
+                    </div>
+                </li>
+            </ul>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <address class="footer__copyright">&copy; 2022 Mesto Russia</address>
+    </footer>
+
+
+    <section class="popup">
+        <div class="popup__container">
+            <button class="button button__close">
+                <img class="button__image" src="./image/Close Icon.png" alt="Закрыть форму.">
+            </button>
+            <h2 class="popup__title">Редактировать профиль</h2>
+            <form class="popup__form">
+                <fieldset class="popup__input-container">
+                    <imput class="popup__imput" type="text" name="name" placeholder="">Жак-Ив Кусто</imput>
+                    <imput class="popup__imput" type="text" name="job" placeholder="">Исследователь океана</imput>
+                    <button class="button button__save" type="submit">Сохранить</button>
+                </fieldset>
+            </form>
+        </div>
+    </section>
+    <script src="./index.js"></script>
+</body>
+
+</html>
