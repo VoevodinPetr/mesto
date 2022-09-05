@@ -5,7 +5,7 @@
   margin: 0 auto;
 }
 
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 918px) {
   .footer {
     margin-left: 24px;
     margin-right: 24px;

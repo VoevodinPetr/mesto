@@ -6,10 +6,10 @@
   border-bottom: solid 1px #545454;
 }
 
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 918px) {
   .header {
-    margin-left: 24px;
-    margin-right: 24px;
+    margin-left: 19px;
+    margin-right: 19px;
   }
 }
 
