@@ -24,11 +24,11 @@
 @import url(../blocks/popup/popup.css);
 @import url(../blocks/popup/__container/popup__container.css);
 @import url(../blocks/button/button.css);
-@import url(../blocks/button/__close/button__close.css);
+@import url(../blocks/button/_close/button_close.css);
 @import url(../blocks/button/__image/button__image.css);
 @import url(../blocks/popup/__title/popup__title.css);
 @import url(../blocks/popup/__input-container/popup__input-container.css);
 @import url(../blocks/popup/__input/popup__input.css);
-@import url(../blocks/button/__save/button__save.css);
+@import url(../blocks/button/_save/button_save.css);
 @import url(../blocks/popup/_edit-button/popup_edit-button.css);
 @import url(../blocks/cards/__like/_active/cards__like_active.css);

@@ -1,4 +1,4 @@
-.button__save {
+.button_save {
   width: 100%;
   height: 50px;
   color: white;
@@ -12,12 +12,12 @@
   margin: 48px 0 0;
 }
 
-.button__save:hover {
+.button_save:hover {
   background-color: rgba(0, 0, 0, 0.8);
 }
 
 @media screen and (max-width: 767px) {
-  .button__save {
+  .button_save {
     height: 46px;
     margin-top: 45px;
     font-size: 14px;
