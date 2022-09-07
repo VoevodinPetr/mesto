@@ -15,15 +15,8 @@
 
 @media screen and (max-width: 767px) {
   .header {
-    min-height: 64px;
-    padding-top: 35px;
-    margin: 0 auto;
-  }
-}
-
-@media screen and (max-width: 424px) {
-  .header {
     min-height: 56px;
     padding-top: 28px;
+    margin: 0 auto;
   }
 }

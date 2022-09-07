@@ -13,5 +13,6 @@
 @media screen and (max-width: 424px) {
   .profile__container {
     margin-top: 22px;
+    transform: translateX(14px);
   }
 }
