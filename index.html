@@ -21,14 +21,12 @@
             <div class="profile__info">
                 <div class="profile__container">
                     <h1 class="profile__name">Жак-Ив Кусто</h1>
-                    <button class="profile__edit-button">
-                        <img src="./image/Vector.png" alt="Иконка кнопки.">
+                    <button class="button button_type_edit" aria-label="Редактировать">
                     </button>
                 </div>
                 <p class="profile__job">Исследователь океана</p>
             </div>
-            <button class="profile__add-button">
-                <img src="./image/add-button.svg" alt="Иконка кнопки.">
+            <button class="button button_type_add" aria-label="Добавить фото">
             </button>
         </section>
 
@@ -38,7 +36,7 @@
                     <img class="cards__image" src="./image/nicolas-weldingh-n2bK4g5qNF0-unsplash.jpg" alt="Арка.">
                     <div class="cards__block">
                         <h2 class="cards__title">Ватикан</h2>
-                        <button class="cards__like">
+                        <button class="button button_type_like" aria-label="Лайк">
                         </button>
                     </div>
                 </li>
@@ -46,7 +44,7 @@
                     <img class="cards__image" src="./image/axp-photography-7_K8r355ZO0-unsplash.jpg" alt="Собор.">
                     <div class="cards__block">
                         <h2 class="cards__title">Португалия, Лисабон</h2>
-                        <button class="cards__like">
+                        <button class="button button_type_like" aria-label="Лайк">
                         </button>
                     </div>
                 </li>
@@ -55,7 +53,7 @@
                         alt="Статуя Свобода.">
                     <div class="cards__block">
                         <h2 class="cards__title">США</h2>
-                        <button class="cards__like">
+                        <button class="button button_type_like" aria-label="Лайк">
                         </button>
                     </div>
                 </li>
@@ -63,7 +61,7 @@
                     <img class="cards__image" src="./image/hans-isaacson-IKQUuqK70_M-unsplash.jpg" alt="Ночной город.">
                     <div class="cards__block">
                         <h2 class="cards__title">Ночные огни</h2>
-                        <button class="cards__like">
+                        <button class="button button_type_like" aria-label="Лайк">
                         </button>
                     </div>
                 </li>
@@ -71,7 +69,7 @@
                     <img class="cards__image" src="./image/joshua-hibbert-Pn6iimgM-wo-unsplash.jpg" alt="Маяк.">
                     <div class="cards__block">
                         <h2 class="cards__title">Маяк Кейп-Нельсон Австралия</h2>
-                        <button class="cards__like">
+                        <button class="button button_type_like" aria-label="Лайк">
                         </button>
                     </div>
                 </li>
@@ -79,7 +77,7 @@
                     <img class="cards__image" src="./image/farrinni-8kM3Gi7_DNM-unsplash.jpg" alt="Девушка на воде.">
                     <div class="cards__block">
                         <h2 class="cards__title">Духовность</h2>
-                        <button class="cards__like">
+                        <button class="button button_type_like" aria-label="Лайк">
                         </button>
                     </div>
                 </li>
@@ -88,28 +86,27 @@
     </main>
 
     <footer class="footer">
-        <address class="footer__copyright">&copy; 2022 Mesto Russia</address>
+        <p class="footer__copyright">&copy; 2022 Mesto Russia</p>
     </footer>
 
 
-    <section class="popup">
+    <div class="popup">
         <div class="popup__container">
-            <button class="button button_close">
-                <img class="button__image" src="./image/Close-Icon.png" alt="Закрыть форму.">
+            <button class="button button_type_close" aria-label="Закрыть форму">
             </button>
             <h2 class="popup__title">Редактировать профиль</h2>
-            <form class="popup__form" novalidate>
+            <form class="popup__form" name="addInfo" novalidate>
                 <fieldset class="popup__input-container">
-                    <input class="popup__input popup__input_name" type="text" name="name" placeholder="Имя"
-                        required>
-                    <input class="popup__input popup__input_job" type="text" name="job" placeholder="О себе"
-                        required>
-                    <button class="button button_save" type="submit" value="Сохранить">Сохранить</button>
+                    <input class="popup__input popup__input_name" type="text" name="name" minlength="2" maxlength="30"
+                        placeholder="Имя" required>
+                    <input class="popup__input popup__input_job" type="text" name="job" minlength="2" maxlength="200"
+                        placeholder="О себе" required>
+                    <button class="button button_type_save" type="submit">Сохранить</button>
                 </fieldset>
             </form>
         </div>
-    </section>
-    <script src="./index.js"></script>
+    </div>
+    <script src="./scripts/index.js"></script>
 </body>
 
 </html>

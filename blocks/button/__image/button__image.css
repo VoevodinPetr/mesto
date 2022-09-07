@@ -1,6 +1,5 @@
 .button__image {
   width: 100%;
-  cursor: pointer;
   position: relative;
   z-index: 1;
 }
