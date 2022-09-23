@@ -32,55 +32,7 @@
 
         <section class="cards">
             <ul class="cards__container">
-                <li class="cards__foto">
-                    <img class="cards__image" src="./image/nicolas-weldingh-n2bK4g5qNF0-unsplash.jpg" alt="Арка.">
-                    <div class="cards__block">
-                        <h2 class="cards__title">Ватикан</h2>
-                        <button class="button button_type_like" type="button" aria-label="Лайк">
-                        </button>
-                    </div>
-                </li>
-                <li class="cards__foto">
-                    <img class="cards__image" src="./image/axp-photography-7_K8r355ZO0-unsplash.jpg" alt="Собор.">
-                    <div class="cards__block">
-                        <h2 class="cards__title">Португалия, Лисабон</h2>
-                        <button class="button button_type_like" type="button" aria-label="Лайк">
-                        </button>
-                    </div>
-                </li>
-                <li class="cards__foto">
-                    <img class="cards__image" src="./image/giulia-salvaterra-_xxQYHYVewg-unsplash.jpg"
-                        alt="Статуя Свобода.">
-                    <div class="cards__block">
-                        <h2 class="cards__title">США</h2>
-                        <button class="button button_type_like" type="button" aria-label="Лайк">
-                        </button>
-                    </div>
-                </li>
-                <li class="cards__foto">
-                    <img class="cards__image" src="./image/hans-isaacson-IKQUuqK70_M-unsplash.jpg" alt="Ночной город.">
-                    <div class="cards__block">
-                        <h2 class="cards__title">Ночные огни</h2>
-                        <button class="button button_type_like" type="button" aria-label="Лайк">
-                        </button>
-                    </div>
-                </li>
-                <li class="cards__foto">
-                    <img class="cards__image" src="./image/joshua-hibbert-Pn6iimgM-wo-unsplash.jpg" alt="Маяк.">
-                    <div class="cards__block">
-                        <h2 class="cards__title">Маяк Кейп-Нельсон Австралия</h2>
-                        <button class="button button_type_like" type="button" aria-label="Лайк">
-                        </button>
-                    </div>
-                </li>
-                <li class="cards__foto">
-                    <img class="cards__image" src="./image/farrinni-8kM3Gi7_DNM-unsplash.jpg" alt="Девушка на воде.">
-                    <div class="cards__block">
-                        <h2 class="cards__title">Духовность</h2>
-                        <button class="button button_type_like" type="button" aria-label="Лайк">
-                        </button>
-                    </div>
-                </li>
+
             </ul>
         </section>
     </main>
@@ -90,7 +42,7 @@
     </footer>
 
 
-    <div class="popup">
+    <div class="popup popup_type_edit">
         <div class="popup__container">
             <button class="button button_type_close" type="button" aria-label="Закрыть форму">
             </button>
@@ -106,6 +58,44 @@
             </form>
         </div>
     </div>
+
+    <div class="popup popup_type_add">
+        <div class="popup__container">
+            <button class="button button_type_close close-add" type="button" aria-label="Закрыть форму">
+            </button>
+            <h2 class="popup__title">Новое место</h2>
+            <form class="popup__form popup__form-add" name="addCard" novalidate>
+                <fieldset class="popup__input-container">
+                    <input class="popup__input popup__input_place" type="text" name="place" minlength="2" maxlength="30"
+                        placeholder="Название" required>
+                    <input class="popup__input popup__input_link" type="url" name="link" minlength="2" maxlength="200"
+                        placeholder="Ссылка на картинку" required>
+                    <button class="button button_type_save" type="submit">Создать</button>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+
+    <div class="popup popup_type_img">
+        <div class="popup__img-container">
+            <button class="button button_type_close close-img" type="button" aria-label="Закрыть картинку">
+            </button>
+            <img class="popup__img" src="#">
+            <h3 class="popup__img-caption"></h3>
+        </div>
+    </div>
+
+    <template class="card-template">
+        <li class="cards__foto">
+            <img class="cards__image" src="#" alt="">
+            <button class="button button_type_delete"></button>
+            <div class="cards__block">
+                <h2 class="cards__title"></h2>
+                <button class="button button_type_like" type="button" aria-label="Лайк">
+                </button>
+            </div>
+        </li>
+    </template>
     <script src="./scripts/index.js"></script>
 </body>
 
