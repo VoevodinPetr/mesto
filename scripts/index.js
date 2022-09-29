@@ -1,5 +1,5 @@
 const popupForm = document.querySelector(".popup_type_edit");
-const editOpenButton = document.querySelector(".button_type_edit");
+const popupEditButton = document.querySelector(".button_type_edit");
 const popupCloseButton = document.querySelector(".button_type_close");
 const popupCloseAdd = document.querySelector(".close-add");
 const formElement = document.querySelector(".popup__form");
@@ -65,7 +65,7 @@ function closePopup(popup) {
 }
 
 //заполнение формы
-editOpenButton.addEventListener("click", () => {
+popupEditButton.addEventListener("click", () => {
   openPopup(popupForm);
 
   nameInput.value = profileName.textContent;
