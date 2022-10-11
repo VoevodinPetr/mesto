@@ -11,3 +11,14 @@
   background-repeat: no-repeat;
   background-position: center;
 }
+
+.button:disabled {
+  border: 1px solid black;
+  color: black;
+  background: white;
+  opacity: 0.2;
+}
+
+.button:hover:enabled {
+  opacity: 0.6;
+}
