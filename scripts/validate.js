@@ -24,7 +24,7 @@ const checkInputValidity = (formElement, inputElement, settings) => {
 };
 
 const toggleButtonState = (inputList, buttonElement, settings) => {
-  if (checkFormValidity(inputList)) {
+  if (toggleInputErrorState(inputList)) {
     buttonElement.setAttribute("disabled", true);
     buttonElement.classList.add(settings.inactiveButtonClass);
   } else {
@@ -33,9 +33,9 @@ const toggleButtonState = (inputList, buttonElement, settings) => {
   }
 };
 
-const checkFormValidity = (inputList) => {
-  return inputList.some(inputElement => !inputElement.validity.valid);
-}
+const toggleInputErrorState = (inputList) => {
+  return inputList.some((inputElement) => !inputElement.validity.valid);
+};
 
 const setEventListeners = (formElement, settings) => {
   const inputList = Array.from(
