@@ -36,7 +36,9 @@ function createCard(item) {
   });
 
   //удаление карточки
-  newCard.querySelector(".button_type_delete").addEventListener("click", (evt) => {
+  newCard
+    .querySelector(".button_type_delete")
+    .addEventListener("click", (evt) => {
       deleteCard(evt);
     });
 
@@ -44,19 +46,19 @@ function createCard(item) {
   newCard
     .querySelector(".button_type_like")
     .addEventListener("click", (evt) => {
-      like(evt)
+      like(evt);
     });
 
   return newCard;
 }
 
 //добавление начальных карточек на страницу
-function render() {
-  initialCards.forEach(renderAddItem);
+function renderInitialCards() {
+  initialCards.forEach(renderItem);
 }
 
 //функция добавление карточки
-function renderAddItem(data) {
+function renderItem(data) {
   const newCard = createCard(data);
   cardsContainer.prepend(newCard);
 }
@@ -99,12 +101,13 @@ function openImgPopup(item) {
 
 //функция удаление карточки
 function deleteCard(evt) {
-  evt.target.parentNode.remove();
+  const cardItem = evt.target.closest(".cards__foto");
+  cardItem.remove();
 }
 
 //функция лайка
 function like(evt) {
-  evt.target.classList.toggle('button_active');
+  evt.target.classList.toggle("button_active");
 }
 
 popupEditButton.addEventListener("click", () => {
@@ -132,7 +135,7 @@ popupCloseImg.addEventListener("click", () => {
 });
 
 // Редактирование имени и вида деятельности
-function submitFormHandlerEdit(evt) {
+function submitEditFormHandler(evt) {
   evt.preventDefault();
 
   profileName.textContent = nameInput.value;
@@ -143,17 +146,17 @@ function submitFormHandlerEdit(evt) {
 // добавление новой карточки
 function submitPlaceFormHandler(evt) {
   evt.preventDefault();
-  renderAddItem({
+  renderItem({
     name: placeInput.value,
     link: linkInput.value,
   });
   closePopup(popupAdd);
   evt.submitter.classList.add("button_type_disabled");
   evt.submitter.setAttribute("disabled", true);
-  formAddSubmit.reset(renderAddItem);
+  formAddSubmit.reset(renderItem);
 }
 
-formElement.addEventListener("submit", submitFormHandlerEdit);
+formElement.addEventListener("submit", submitEditFormHandler);
 formAddSubmit.addEventListener("submit", submitPlaceFormHandler);
 
-render();
+renderInitialCards();
