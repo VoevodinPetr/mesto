@@ -7,9 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./pages/index.css">
     <title>Mesto</title>
-    <script defer src="./scripts/cards.js"></script>
-    <script defer src="./scripts/index.js"></script>
-    <script defer src="./scripts/validate.js"></script>
+    <script type="module" defer src="./scripts/index.js"></script>
+    <script type="module" defer src="./scripts/Card.js"></script>
+    <script type="module" defer src="./scripts/FormValidator.js"></script>
 </head>
 
 <body class="root">
@@ -50,7 +50,7 @@
             <button class="button button_type_close" type="button" aria-label="Закрыть форму">
             </button>
             <h2 class="popup__title">Редактировать профиль</h2>
-            <form class="popup__form" name="addInfo" novalidate>
+            <form class="popup__form popup__form-edit" name="addInfo" novalidate>
                 <fieldset class="popup__input-container">
                     <input class="popup__input popup__input_name" type="text" id="popup__input_name" name="name"
                         minlength="2" maxlength="40" placeholder="Имя" required>
@@ -66,7 +66,7 @@
 
     <div class="popup popup_type_add">
         <div class="popup__container">
-            <button class="button button_type_close close-add" type="button" aria-label="Закрыть форму">
+            <button class="button button_type_close" type="button" aria-label="Закрыть форму">
             </button>
             <h2 class="popup__title">Новое место</h2>
             <form class="popup__form popup__form-add" name="card" id="addCard" novalidate>
@@ -85,7 +85,7 @@
 
     <div class="popup popup_type_img">
         <div class="popup__img-container">
-            <button class="button button_type_close close-img" type="button" aria-label="Закрыть картинку">
+            <button class="button button_type_close" type="button" aria-label="Закрыть картинку">
             </button>
             <img class="popup__img" src="#" alt="">
             <h3 class="popup__img-caption"></h3>
@@ -94,7 +94,7 @@
 
     <template class="card-template">
         <li class="cards__foto">
-            <img class="cards__image" src="#" alt="">
+            <img class="cards__image" src="" alt="">
             <button class="button button_type_delete"></button>
             <div class="cards__block">
                 <h2 class="cards__title"></h2>
