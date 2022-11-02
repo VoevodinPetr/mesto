@@ -63,11 +63,15 @@ function renderInitialCards() {
   setListeners();
 }
 
-//функция добавление карточки
+// добавление карточки
 function renderItem(item) {
-  const card = new Card(item, ".card-template");
+  cardsContainer.prepend(createCard(item));
+}
+
+function createCard(item) {
+  const card = new Card(item, ".card-template", openImgPopup);
   const cardElement = card.generateCard();
-  cardsContainer.prepend(cardElement);
+  return cardElement;
 }
 
 //функция открытия попапов
@@ -94,6 +98,7 @@ const closePopupByEsc = (evt) => {
 export function openImgPopup(title, link) {
   picture.src = link;
   imageCaption.textContent = title;
+  imageCaption.alt = `Изображение ${title.name}`;
   openPopup(popupImg);
 }
 
@@ -107,22 +112,31 @@ function setListeners() {
     .querySelector(".button_type_add")
     .addEventListener("click", openAddPopup);
 
-//закрытие попапов кликом на крестик и оверлей
-    popupEdit.addEventListener("click", (evt) => {
-      if (evt.target.classList.contains('popup_type_edit') || evt.target.classList.contains('button_type_close')) {
-    closePopup(popupEdit);
-      }
+  //закрытие попапов кликом на крестик и оверлей
+  popupEdit.addEventListener("click", (evt) => {
+    if (
+      evt.target.classList.contains("popup_type_edit") ||
+      evt.target.classList.contains("button_type_close")
+    ) {
+      closePopup(popupEdit);
+    }
   });
 
   popupAdd.addEventListener("click", (evt) => {
-    if (evt.target.classList.contains('popup_type_add') || evt.target.classList.contains('button_type_close')) {
-    closePopup(popupAdd);
+    if (
+      evt.target.classList.contains("popup_type_add") ||
+      evt.target.classList.contains("button_type_close")
+    ) {
+      closePopup(popupAdd);
     }
   });
 
   popupImg.addEventListener("click", (evt) => {
-    if (evt.target.classList.contains('popup_type_img') || evt.target.classList.contains('button_type_close')) {
-    closePopup(popupImg);
+    if (
+      evt.target.classList.contains("popup_type_img") ||
+      evt.target.classList.contains("button_type_close")
+    ) {
+      closePopup(popupImg);
     }
   });
 
@@ -134,6 +148,7 @@ function setListeners() {
 function openEditPopup() {
   nameInput.value = profileName.textContent;
   jobInput.value = profileJob.textContent;
+ 
   openPopup(popupEdit);
 }
 
@@ -143,13 +158,13 @@ function openAddPopup() {
   openPopup(popupAdd);
 }
 
-
 // Редактирование имени и вида деятельности
 function submitEditFormHandler(evt) {
   evt.preventDefault();
 
   profileName.textContent = nameInput.value;
   profileJob.textContent = jobInput.value;
+  
   closePopup(popupEdit);
 }
 
@@ -161,6 +176,8 @@ function submitPlaceFormHandler(evt) {
     link: linkInput.value,
   });
   closePopup(popupAdd);
+  evt.submitter.setAttribute("disabled", true);
+  formAddSubmit.reset(renderItem);
 }
 
 renderInitialCards();

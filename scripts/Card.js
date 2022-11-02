@@ -1,7 +1,5 @@
-import { openImgPopup } from "./index.js";
-
 export class Card {
-    constructor(data, cardSelector) {
+    constructor(data, cardSelector, openImgPopup) {
     this._cardSelector = cardSelector;
     this._title = data.name;
     this._image = data.link;
@@ -20,14 +18,15 @@ export class Card {
   }
 
   _handleDeleteCard(evt) {
-    evt.target.parentNode.remove();
+    this._element = evt.target.closest(".cards__foto");
+    this._element.remove();
   }
 
   _setEventListeners() {
     this._element
       .querySelector(".cards__image")
       .addEventListener("click", () => {
-        openImgPopup(this._title, this._image);
+        this._openImgPopup(this._title, this._image);
       });
 
     this._element
