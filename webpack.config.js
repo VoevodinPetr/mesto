@@ -23,7 +23,16 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.css$/i,
+        test: /\.js$/,
+        use: "babel-loader",
+        exclude: "/node_modules/",
+      },
+      {
+        test: /\.(png|svg|jpg|gif|woff(2)?|eot|ttf|otf)$/,
+        type: "asset/resource",
+      },
+      {
+        test: /\.css$/,
         use: [
           MiniCssExtractPlugin.loader,
           {
@@ -35,31 +44,8 @@ module.exports = {
           "postcss-loader",
         ],
       },
-      {
-        test: /\.js$/,
-        exclude: /(node_modules)/,
-        use: {
-          loader: "babel-loader",
-          options: {
-            presets: ["@babel/preset-env"],
-          },
-        },
-      },
-      {
-        test: /\.(png|jpe?g|gif|svg|woff2|woff)$/i,
-        use: [
-          {
-            loader: "file-loader",
-          },
-        ],
-      },
-      {
-        test: /\.html$/i,
-        loader: "html-loader",
-      },
     ],
   },
-
   plugins: [
     new HtmlWebpackPlugin({
       template: "./src/index.html",
