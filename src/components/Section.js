@@ -5,7 +5,7 @@ export class Section {
     this._container = containerSelector;
   }
 
-  addItem(element) {
+  prependItem(element) {
     this._container.prepend(element);
   }
 

@@ -15,7 +15,8 @@ import { PopupWithForm } from "../components/PopupWithForm.js";
 import { UserInfo } from "../components/UserInfo.js";
 
 const popupImg = new PopupWithImage(".popup_type_img");
-
+const buttonAddProfile = document.querySelector(".button_type_add");
+const buttonEditProfile = document.querySelector(".button_type_edit");
 //рендер начальных карточек
 const defaultCardList = new Section(
   { items: initialCards, renderer: rendererAppend },
@@ -23,19 +24,26 @@ const defaultCardList = new Section(
 );
 defaultCardList.renderItems();
 
-const getInfo = new UserInfo(selectorUserInfo);
+const userInfo = new UserInfo(selectorUserInfo);
 
-const popupEdit = new PopupWithForm(".popup_type_edit", submitEditFormHandler);
-document.querySelector(".button_type_edit").addEventListener("click", () => {
-  const dataUser = getInfo.getUserInfo();
+const popupEditProfile = new PopupWithForm(".popup_type_edit", submitEditFormHandler);
+buttonEditProfile.addEventListener("click", () => {
+  formEditValidator.hideInputError(document.querySelector("#popup__input_name"));
+  formEditValidator.hideInputError(document.querySelector("#popup__input_job"));
+  formEditValidator.enabledButton();
+  const dataUser = userInfo.getUserInfo();
   userNameInput.value = dataUser.name;
   userJobInput.value = dataUser.job;
-  popupEdit.open();
+  popupEditProfile.open();
 });
 
-const popupAdd = new PopupWithForm(".popup_type_add", submitPlaceFormHandler);
-document.querySelector(".button_type_add").addEventListener("click", () => {
-  popupAdd.open();
+const popupAddProfile = new PopupWithForm(".popup_type_add", submitPlaceFormHandler);
+buttonAddProfile.addEventListener("click", () => {
+  document.querySelector(".popup_type_add").querySelector(".popup__form").reset();
+  formAddValidator.hideInputError(document.querySelector("#popup__input_card-name"));
+  formAddValidator.hideInputError(document.querySelector("#popup__input_link"));
+  formAddValidator.disabledButton();
+  popupAddProfile.open();
 });
 
 //валидация форм
@@ -49,35 +57,31 @@ const formAddValidator = new FormValidator(settings.formAddSelector, settings);
 formAddValidator.enableValidation();
 
 function rendererAppend(item) {
-  const cardElement = rendererCard(item);
+  const cardElement = createCard(item);
   defaultCardList.appendItem(cardElement);
 }
 
 function rendererPrepend(item) {
-  const cardElement = rendererCard(item);
-  defaultCardList.addItem(cardElement);
+  const cardElement = createCard(item);
+  defaultCardList.prependItem(cardElement);
 }
 
-function rendererCard(item) {
+function createCard(item) {
   const card = new Card(
-    item,
-    ".card-template",
-    popupImg.handleCardClick.bind(popupImg)
-  );
+    item,".card-template", popupImg.handleCardClick.bind(popupImg));
   return card.generateCard();
 }
 
-//сабмиты
 function submitEditFormHandler(dataUser) {
-  getInfo.setUserInfo(dataUser);
-  popupEdit.close();
+  userInfo.setUserInfo(dataUser);
+  popupEditProfile.close();
 }
 
 function submitPlaceFormHandler(dataNewCard) {
-  popupAdd.close();
+  popupAddProfile.close();
   const newCard = new Section(
     { items: [dataNewCard], renderer: rendererPrepend },
-    ".cards__container"
+    cardsContainer
   );
   newCard.renderItems();
 }

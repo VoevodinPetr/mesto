@@ -3,7 +3,6 @@ import { Popup } from "../components/Popup.js";
 export class PopupWithForm extends Popup {
   constructor(cardSelector, submitForm) {
     super(cardSelector);
-    this._popup = document.querySelector(cardSelector);
     this._submitForm = submitForm;
   }
 
@@ -27,6 +26,6 @@ export class PopupWithForm extends Popup {
     };
     this._popup.addEventListener("submit", this.sabmitHandler);
 
-    super.setEventListeners();
+    super._setEventListeners();
   }
 }
