@@ -44,3 +44,5 @@ export const initialCards = [
 export const cardsContainer = document.querySelector(".cards__container");
 export const userNameInput = document.querySelector(".popup__input_name");
 export const userJobInput = document.querySelector(".popup__input_job");
+export const buttonAddProfile = document.querySelector(".button_type_add");
+export const buttonEditProfile = document.querySelector(".button_type_edit");

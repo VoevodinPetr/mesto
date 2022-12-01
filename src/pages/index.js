@@ -6,6 +6,8 @@ import {
   cardsContainer,
   userNameInput,
   userJobInput,
+  buttonAddProfile,
+  buttonEditProfile
 } from "../utils/constants.js";
 import { Card } from "../components/Card.js";
 import { FormValidator } from "../components/FormValidator.js";
@@ -15,22 +17,15 @@ import { PopupWithForm } from "../components/PopupWithForm.js";
 import { UserInfo } from "../components/UserInfo.js";
 
 const popupImg = new PopupWithImage(".popup_type_img");
-const buttonAddProfile = document.querySelector(".button_type_add");
-const buttonEditProfile = document.querySelector(".button_type_edit");
-//рендер начальных карточек
-const defaultCardList = new Section(
-  { items: initialCards, renderer: rendererAppend },
-  cardsContainer
-);
+
+const defaultCardList = new Section({ items: initialCards, renderer: rendererAppend }, cardsContainer);
 defaultCardList.renderItems();
 
 const userInfo = new UserInfo(selectorUserInfo);
 
 const popupEditProfile = new PopupWithForm(".popup_type_edit", submitEditFormHandler);
 buttonEditProfile.addEventListener("click", () => {
-  formEditValidator.hideInputError(document.querySelector("#popup__input_name"));
-  formEditValidator.hideInputError(document.querySelector("#popup__input_job"));
-  formEditValidator.enabledButton();
+  formEditValidator._resetValidation()
   const dataUser = userInfo.getUserInfo();
   userNameInput.value = dataUser.name;
   userJobInput.value = dataUser.job;
@@ -39,18 +34,11 @@ buttonEditProfile.addEventListener("click", () => {
 
 const popupAddProfile = new PopupWithForm(".popup_type_add", submitPlaceFormHandler);
 buttonAddProfile.addEventListener("click", () => {
-  document.querySelector(".popup_type_add").querySelector(".popup__form").reset();
-  formAddValidator.hideInputError(document.querySelector("#popup__input_card-name"));
-  formAddValidator.hideInputError(document.querySelector("#popup__input_link"));
-  formAddValidator.disabledButton();
+  formAddValidator._resetValidation()
   popupAddProfile.open();
 });
 
-//валидация форм
-const formEditValidator = new FormValidator(
-  settings.formEditSelector,
-  settings
-);
+const formEditValidator = new FormValidator(settings.formEditSelector,settings);
 formEditValidator.enableValidation();
 
 const formAddValidator = new FormValidator(settings.formAddSelector, settings);
@@ -79,9 +67,5 @@ function submitEditFormHandler(dataUser) {
 
 function submitPlaceFormHandler(dataNewCard) {
   popupAddProfile.close();
-  const newCard = new Section(
-    { items: [dataNewCard], renderer: rendererPrepend },
-    cardsContainer
-  );
-  newCard.renderItems();
+  rendererPrepend(dataNewCard);
 }

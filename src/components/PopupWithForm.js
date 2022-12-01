@@ -20,7 +20,7 @@ export class PopupWithForm extends Popup {
     return this._dataNewCard;
   }
 
-  setEventListeners() {
+  _setEventListeners() {
     this.sabmitHandler = () => {
       this._submitForm(this._getInputValues());
     };
