@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mesto</title>
-    
+
 </head>
 
 <body class="root">
@@ -16,15 +16,15 @@
     <main class="content">
         <section class="profile">
             <div class="profile__avatar-conteiner">
-                <img class="profile__avatar" src="<%=require('./image/image.jpg')%>" alt="Аватар.">
+                <img class="profile__avatar" src="#" alt="Аватар.">
             </div>
             <div class="profile__info">
                 <div class="profile__container">
-                    <h1 class="profile__name">Жак-Ив Кусто</h1>
+                    <h1 class="profile__name"></h1>
                     <button class="button button_type_edit" type="button" aria-label="Редактировать">
                     </button>
                 </div>
-                <p class="profile__job">Исследователь океана</p>
+                <p class="profile__job"></p>
             </div>
             <button class="button button_type_add" type="button" aria-label="Добавить фото">
             </button>
@@ -47,7 +47,7 @@
             <button class="button button_type_close" type="button" aria-label="Закрыть форму">
             </button>
             <h2 class="popup__title">Редактировать профиль</h2>
-            <form class="popup__form popup__form-edit" name="addInfo" novalidate>
+            <form class="popup__form popup__form-edit" name="editInfoUser" novalidate>
                 <fieldset class="popup__input-container">
                     <input class="popup__input popup__input_name" type="text" id="popup__input_name" name="name_user"
                         minlength="2" maxlength="40" placeholder="Имя" required>
@@ -68,8 +68,8 @@
             <h2 class="popup__title">Новое место</h2>
             <form class="popup__form popup__form-add" name="card" id="addCard" novalidate>
                 <fieldset class="popup__input-container">
-                    <input class="popup__input" id="popup__input_card-name"  type="text" name="name"
-                        minlength="2" maxlength="30" placeholder="Название" required>
+                    <input class="popup__input" id="popup__input_card-name" type="text" name="name" minlength="2"
+                        maxlength="30" placeholder="Название" required>
                     <span class="popup__input-error" id="popup__input_card-name-error"></span>
                     <input class="popup__input" id="popup__input_link" type="url" name="link"
                         placeholder="Ссылка на картинку" required>
@@ -89,19 +89,49 @@
         </div>
     </div>
 
+    <div class="popup popup_type_сonsent">
+        <div class="popup__container">
+            <button class="button button_type_close" type="button" aria-label="Закрыть форму">
+            </button>
+            <h2 class="popup__title">Вы уверены?</h2>
+            <button class="button button_type_save" type="submit">Да</button>
+        </div>
+    </div>
+
+    <div class="popup popup_type_edit-avatar">
+        <div class="popup__container">
+            <button class="button button_type_close" type="button" aria-label="Закрыть форму">
+            </button>
+            <h2 class="popup__title">Обновить аватар</h2>
+            <form class="popup__form popup__form-edit-avatar" name="editAvatar" novalidate>
+                <fieldset class="popup__input-container">
+                    <input class="popup__input" id="popup__input_user-avatar" type="url" name="avatar_user"
+                        placeholder="Ссылка на аватар" required>
+                    <span class="popup__input-error" id="popup__input_user-avatar-error"></span>
+                    <button class="button button_type_save" type="submit">Сохранить</button>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+
+
+
     <template class="card-template">
         <li class="cards__foto">
             <img class="cards__image" src="#" alt="">
             <button class="button button_type_delete"></button>
             <div class="cards__block">
                 <h2 class="cards__title"></h2>
-                <button class="button button_type_like" type="button" aria-label="Лайк">
-                </button>
+                <div class="cards__like-container">
+                    <button class="button button_type_like" type="button" aria-label="Лайк">
+                    </button>
+                    <span class="cards__like-number"></span>
+                </div>
             </div>
         </li>
     </template>
 
-    
+
 </body>
 
 </html>

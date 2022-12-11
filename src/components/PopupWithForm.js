@@ -3,6 +3,7 @@ import { Popup } from "../components/Popup.js";
 export class PopupWithForm extends Popup {
   constructor(cardSelector, submitForm) {
     super(cardSelector);
+    this._popup = document.querySelector(cardSelector);
     this._submitForm = submitForm;
   }
 
@@ -21,11 +22,10 @@ export class PopupWithForm extends Popup {
   }
 
   _setEventListeners() {
-    this.sabmitHandler = () => {
-      this._submitForm(this._getInputValues());
+    this.sabmitHandler = (evt) => {
+      this._submitForm(evt, this._getInputValues());
     };
     this._popup.addEventListener("submit", this.sabmitHandler);
-
     super._setEventListeners();
   }
 }
