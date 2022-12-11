@@ -180,8 +180,8 @@ function submitEditFormHandlerAvatar(evt, DataAvatar) {
 function renderLoading(isLoading, evt) {
   const buttonSabmit = evt.target.querySelector(".button_type_save");
   if (isLoading) {
-    buttonSabmit.textContent = `${buttonSabmit.textContent}...`;
+    buttonSabmit.textContent = "Сохранение";
   } else {
-    buttonSabmit.textContent = buttonSabmit.textContent.slice(0, -3);
+    buttonSabmit.textContent = "Сохранить";
   }
 }
