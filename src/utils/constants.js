@@ -22,4 +22,4 @@ export const userJobInput = document.querySelector(".popup__input_job");
 export const buttonAddProfile = document.querySelector(".button_type_add");
 export const buttonEditProfile = document.querySelector(".button_type_edit");
 export const buttonEditAvator = document.querySelector(".profile__avatar-conteiner");
-export const сonsentSabmitButton = document.querySelector(".popup_type_сonsent").querySelector(".button_type_save");
+export const сonsentSabmitButton = document.querySelector(".popup_type_consent").querySelector(".button_type_save");

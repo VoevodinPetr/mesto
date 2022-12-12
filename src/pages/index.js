@@ -115,7 +115,7 @@ buttonEditAvator.addEventListener("click", () => {
   popupEditAvatar.open();
 });
 
-const popupСonsent = new Popup(".popup_type_сonsent");
+const popupСonsent = new Popup(".popup_type_consent");
 
 const formEditValidator = new FormValidator(settings.formEditSelector, settings);
 formEditValidator.enableValidation();
