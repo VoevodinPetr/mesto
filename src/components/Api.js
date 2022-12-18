@@ -11,6 +11,7 @@ export class Api {
   }
 
   editUser(dataUser) {
+    
     return fetch(`${this.url}/users/me`, {
       method: "PATCH",
       headers: this.headers,

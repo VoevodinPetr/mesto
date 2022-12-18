@@ -1,5 +1,5 @@
 export class Card {
-  constructor(data, cardSelector, openImgPopup, popupСonsent, myId, сonsentSabmitButton, apiDeleteCard, apiLike) {
+  constructor(data, cardSelector, openImgPopup, popupСonsent, myId, сonsentSabmitButton, handleDeleteCard, handleLikeCard) {
     this._cardSelector = cardSelector;
     this._data = data;
     this._title = data.name;
@@ -11,8 +11,8 @@ export class Card {
     this._cardId = data._id;
     this._popupСonsent = popupСonsent;
     this._сonsentSabmitButton = сonsentSabmitButton;
-    this._apiDeleteCard = apiDeleteCard;
-    this._apiLike = apiLike;
+    this._handleDeleteCard = handleDeleteCard;
+    this._handleLikeCard = handleLikeCard;
   }
 
   _getTemplate() {
@@ -36,8 +36,8 @@ export class Card {
     }
   }
 
-  _handleLike() {
-    this._apiLike(this._updateLike(this._data)).then((data) => {
+  _handleLikeClick() {
+    this._handleLikeCard(this._updateLike(this._data)).then((data) => {
       this._data.likes = data.likes;
       this._installLike(data);
     });
@@ -62,8 +62,9 @@ export class Card {
     );
   }
 
+
   _deleteCard() {
-    this._apiDeleteCard(this._cardId).then(() => {
+    this._handleDeleteCard(this._cardId).then(() => {
       this._element.remove();
       this._сonsentSabmitButton.removeEventListener(
         "click", this._deleteCardWrapper
@@ -81,19 +82,19 @@ export class Card {
     this._element
       .querySelector(".button_type_like")
       .addEventListener("click", () => {
-        this._handleLike();
+        this._handleLikeClick();
       });
 
     if (this._myId === this._ownerId) {
       this._buttonDelete = this._element.querySelector(".button_type_delete");
-      this._buttonDelete.addEventListener("click", (evt) => {
+      this._buttonDelete.addEventListener("click", () => {
         this._popupСonsent.open();
         this._sabmitDeleteCard();
       });
       this._buttonDelete.classList.add("button_visible");
     }
   }
-
+  
   generateCard() {
     this._element = this._getTemplate();
     this._cardImage = this._element.querySelector(".cards__image");

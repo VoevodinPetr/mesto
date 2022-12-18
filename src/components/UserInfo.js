@@ -5,11 +5,11 @@ export class UserInfo {
     this._avatar = document.querySelector(selectorUserInfo.avatarSelector);
   }
   getUserInfo() {
-    const userInfo = {
+    return {
       name: this._name.textContent,
       job: this._job.textContent,
     };
-    return userInfo;
+   
   }
 
   setUserInfo(userInfo) {
