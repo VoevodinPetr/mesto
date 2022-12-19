@@ -127,7 +127,7 @@ formEditAvatarValidator.enableValidation();
 function submitEditFormHandler(dataUser) {
   api.editUser(dataUser)
     .then((result) => {
-      
+      popupEditProfile.renderLoading(true);
       const dataUser = {
         name_user: result.name,
         job_user: result.about,
@@ -144,6 +144,7 @@ function submitEditFormHandler(dataUser) {
 }
 
 function submitPlaceFormHandler(dataNewCard) {
+  popupAddProfile.renderLoading(true);
   api.createCard(dataNewCard)
     .then((data) => {
       instanceСlassSection.renderItems([data]);
@@ -158,6 +159,7 @@ function submitPlaceFormHandler(dataNewCard) {
 }
 
 function submitEditFormHandlerAvatar(dataAvatar) {
+  popupEditAvatar.renderLoading(true); 
   api.editAvatar(dataAvatar.avatar_user)
     .then((data) => {
       getInfo.setUserAvatar(data.avatar);
